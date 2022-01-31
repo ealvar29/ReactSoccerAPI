@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect, requestOptions } from 'react'
 
@@ -27,14 +26,13 @@ useEffect(() => {
       console.log(err.message);
     });
 }, []);
-
+  console.log(data)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <ul>
-          { data && data.teams.map((team) => {
-              return <li>{team.name}</li>
+          { data && data.teams.map((team, id) => {
+              return <li key={id} className='text-red-500'>{team.name}</li>
           })}
         </ul>
       </header>
